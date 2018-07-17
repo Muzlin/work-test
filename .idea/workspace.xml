@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4bba595-ee1f-4965-9d3c-9798dfd3c46b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,8 +21,12 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="106" column="91" selection-start-line="106" selection-start-column="91" selection-end-line="106" selection-end-column="91" />
+            <state relative-caret-position="309">
+              <caret line="239" column="10" lean-forward="true" selection-start-line="239" selection-start-column="10" selection-end-line="239" selection-end-column="10" />
+              <folding>
+                <element signature="n#main#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#script#1;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,6 +53,7 @@
       <find>console</find>
       <find>relaceUrl</find>
       <find>flex</find>
+      <find>onRZTResponse</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -62,6 +69,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$PROJECT_DIR$/js/api.js" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -90,6 +98,11 @@
             <path>
               <item name="h5dir" type="b2602c69:ProjectViewProjectNode" />
               <item name="h5dir" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="h5dir" type="b2602c69:ProjectViewProjectNode" />
+              <item name="h5dir" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -143,12 +156,12 @@
       <updated>1531444847410</updated>
       <workItem from="1531444848644" duration="1978000" />
       <workItem from="1531468282348" duration="92000" />
-      <workItem from="1531726508627" duration="30499000" />
+      <workItem from="1531726508627" duration="38504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32569000" />
+    <option name="totallyTimeSpent" value="40574000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="839" extended-state="0" />
@@ -179,11 +192,20 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+          <folding>
+            <element signature="n#main#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -230,10 +252,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="99" column="45" selection-start-line="99" selection-start-column="32" selection-end-line="99" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="106" column="91" selection-start-line="106" selection-start-column="91" selection-end-line="106" selection-end-column="91" />
+        <state relative-caret-position="309">
+          <caret line="239" column="10" lean-forward="true" selection-start-line="239" selection-start-column="10" selection-end-line="239" selection-end-column="10" />
+          <folding>
+            <element signature="n#main#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
