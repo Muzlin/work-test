@@ -401,18 +401,23 @@
 </script>
 <script>
   $('#checkBank').on('click', function (e) {
+    try {
+
+    } catch (e) {
+
+    }
     let url = 'http://118.89.36.194:18487/Inter/services/SoapService/doService?requestXml={"REQUESTS":[{"REQ_COMM_DATA":{"service":"A1705003","dataType":"json","OPERATION_PLATFORM":"2"}}]}'
-    $.get(url,function (data) {
+    $.get(url, function (data) {
       let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
-      if(code !== 0){
+      if (code !== 0) {
         return false
       }
       let obj = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_COMM_DATA[0]
-      if(obj && obj.length > 0){
+      if (obj && obj.length > 0) {
         let html = '<ul>'
-        obj.map(item=>{
-          html += '<li data="'+item.YHMC+'" data-id="'+item.YMBM+'">'+
-            item.YHMC+
+        obj.map(item => {
+          html += '<li data="' + item.YHMC + '" data-id="' + item.YMBM + '">' +
+            item.YHMC +
             '</li>'
         })
         html += '</ul>'
@@ -433,53 +438,56 @@
 </script>
 <script>
   $('#checkProvince').on('click', function (e) {
-    $.get('http://118.89.36.194:18487/Inter/services/SoapService/doService?requestXml={"REQUESTS":[{"REQ_COMM_DATA":{"service":"A1705001","dataType":"json"}}]}', function (data) {
-      let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
-      if(code !== 0){
-        return false
-      }
-      let obj = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_COMM_DATA[0]
-      if(obj && obj.length > 0){
-        let html = '<ul>'
-        obj.map(item=>{
-          html += '<li data="'+item.SSMC+'" data-id="'+item.SSDM+'">'+
-              item.SSMC+
+    try {
+      $.get('http://118.89.36.194:18487/Inter/services/SoapService/doService?requestXml={"REQUESTS":[{"REQ_COMM_DATA":{"service":"A1705001","dataType":"json"}}]}', function (data) {
+        let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
+        if (code !== 0) {
+          return false
+        }
+        let obj = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_COMM_DATA[0]
+        if (obj && obj.length > 0) {
+          let html = '<ul>'
+          obj.map(item => {
+            html += '<li data="' + item.SSMC + '" data-id="' + item.SSDM + '">' +
+              item.SSMC +
               '</li>'
-        })
-        html += '</ul>'
-        $('.provinceBox').html(html)
-      }
-    })
-
-
-    $('.provinceBox').addClass('active')
-    $('.container').removeClass('active')
+          })
+          html += '</ul>'
+          $('.provinceBox').html(html)
+        }
+      })
+      $('.provinceBox').addClass('active')
+      $('.container').removeClass('active')
+    } catch (e) {
+      console.log(1)
+    }
   })
+
   $('.boxList.provinceBox').on('click', 'li', function (e) {
     let data = $(e.currentTarget).attr('data')
     let data_id = $(e.currentTarget).attr('data-id')
     if (data) {
       $('.provinceBox').removeClass('active')
       $('.container').addClass('active')
-      $('#provinceValue').val(data).attr('pid',data_id)
+      $('#provinceValue').val(data).attr('pid', data_id)
     }
   })
 </script>
 <script>
   $('#checkCity').on('click', function (e) {
     let pid = $('#provinceValue').attr('pid')
-    if(!pid){
+    if (!pid) {
       alert(111)
       return false;
     }
-    let url = 'http://118.89.36.194:18487/Inter/services/SoapService/doService?requestXml={"REQUESTS":[{"REQ_COMM_DATA":{"service":"A1705002","dataType":"json","PAR_REGION_ID":"'+pid+'"}}]}'
-    $.get(url,function (data) {
+    let url = 'http://118.89.36.194:18487/Inter/services/SoapService/doService?requestXml={"REQUESTS":[{"REQ_COMM_DATA":{"service":"A1705002","dataType":"json","PAR_REGION_ID":"' + pid + '"}}]}'
+    $.get(url, function (data) {
       let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
-      if(code !== 0){
+      if (code !== 0) {
         return false
       }
       let obj = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_COMM_DATA[0]
-      if(obj && obj.length > 0) {
+      if (obj && obj.length > 0) {
         let html = '<ul>'
         obj.map(item => {
           html += '<li data="' + item.DQMC + '" data-id="' + item.DQDM + '">' +
@@ -506,14 +514,14 @@
 <script>
   function sendCode(e) {
     let phone = $('#phone').val()
-    if(!phone){
+    if (!phone) {
       return false
     }
-    let url = 'http://118.89.36.194:18487/Inter/services/SoapService/doService?requestXml={"REQUESTS":[{"REQ_COMM_DATA":{"service":"S000101","dataType":"json","TYPE":"41951","MOBILE_NO":"'+phone+'"}}]}'
-    $.get(url,function (data) {
+    let url = 'http://118.89.36.194:18487/Inter/services/SoapService/doService?requestXml={"REQUESTS":[{"REQ_COMM_DATA":{"service":"S000101","dataType":"json","TYPE":"41951","MOBILE_NO":"' + phone + '"}}]}'
+    $.get(url, function (data) {
       let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
       let msg = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_TEXT
-      if(code !== 0){
+      if (code !== 0) {
         alert(msg)
         return false
       }
