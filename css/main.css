@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::after {
+  box-sizing: border-box;
+}
+
+*::before {
+  box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  font: inherit;
+}
+
+html {
+  max-width: 750px;
+  margin: auto;
+}
+
+main {
+  background: #FFF0D1;
+  font-size: 15px;
+}
+
+main .container {
+  background: #FFF8EA;
+  display: none;
+}
+
+main .container.active {
+  display: block;
+}
+
+.container > .header > img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border: none;
+}
+
+.container > .form {
+  color: #5E6464;
+}
+
+.form > ul {
+}
+
+.form > ul > li {
+  border: 1px solid #FFF0D1;
+  padding: 10px 16px;
+}
+
+.form .form-item {
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form .form-item > label {
+
+}
+
+.form .form-item > .checkInput {
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  justify-content: center;
+  align-items: center;
+}
+
+.form .form-item > .checkInput > img {
+  width: 6px;
+  height: 10px;
+  margin-left: 5px;
+}
+
+.form .form-item input {
+  border: none;
+  outline: none;
+  background: #FFF8EA;
+  color: #6A706F;
+  width: 150px;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: right;
+}
+
+.form .form-item.codeInput input {
+  text-align: left;
+  padding-left: 8px;
+}
+
+.form .form-item input::-webkit-input-placeholder {
+  color: #C1BCB4;
+  text-align: right;
+}
+
+.form .form-item.codeInput input::-webkit-input-placeholder {
+  text-align: left;
+}
+
+.form .form-item .codeButton {
+  background: #FCD97C;
+  outline: none;
+  border: none;
+  padding: 5px 16px;
+  color: #E65D4A;
+}
+
+.form .form-item .codeButton.disabled {
+  background: #ccc;
+}
+
+.form .hint {
+  background: #FFF0D1;
+  color: #1E1C18;
+  font: inherit;
+  padding: 5px 16px;
+}
+
+.selection {
+  background: #FFF0D1;
+}
+
+.selection.rule {
+  padding: 8px 16px 50px 16px;
+  font-size: 12px;
+  text-align: justify;
+  text-justify: distribute-all-lines; /*ie6-8*/
+  text-align-last: justify; /* ie9*/
+  -moz-text-align-last: justify; /*ff*/
+  -webkit-text-align-last: justify; /*chrome 20+*/
+}
+
+.selection.rule > span {
+  color: #B4AB99;
+}
+
+.selection.rule > span > a {
+  color: #7D7970;
+}
+
+.selection.rule > input[type=checkbox] {
+  display: none;
+}
+
+.selection.rule > .agree-box {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  vertical-align: bottom;
+  background: url(../img/icon-check.png) left center no-repeat;
+  -webkit-background-size: 12px;
+  background-size: 12px;
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-bottom: 1px;
+}
+
+.selection.rule > .agree-box.active {
+  background: url(../img/icon-checks.png) left center no-repeat;
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  vertical-align: bottom;
+  -webkit-background-size: 12px;
+  background-size: 12px;
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-bottom: 1px;
+}
+
+.selection.submit {
+  background: #E03C3D;
+  padding: 10px 0;
+  text-align: center;
+  color: #FBDCBF;
+}
+
+.selection.description {
+  padding: 50px 16px 30px 16px;
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: #D8CCB3;
+  line-height: 12px;
+}
+
+.selection.description img {
+  width: 12px;
+  height: 12px;
+  margin-right: 3px;
+}
+
+main > .boxList {
+  display: none;
+  height: 100vh;
+  background: #FFF;
+  transition: all 3s;
+}
+
+main > .boxList.active {
+  display: block;
+  transition: all 3s;
+}
+
+main > .boxList ul {
+  margin-top: 20px;
+}
+
+main > .boxList ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
