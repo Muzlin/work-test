@@ -5,7 +5,7 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>register</title>
+  <title>注册</title>
   <link rel="stylesheet" href="./css/main.css">
   <script src="./js/fastclick.js"></script>
   <script src="./js/jquery.min.js"></script>
@@ -104,7 +104,7 @@
     <div class="selection rule" id="checkBox">
       <input type="checkbox" id="agree-checkbox">
       <label class="agree-box active" for="agree-checkbox"></label>
-      <span>点击"立即确认"即表示您已同意 <a href="#">《和掌柜平台服务协议》</a>
+      <span>点击"立即确认"即表示您已同意 <a href="https://m.139lc.com/views/dl/protocol/hzgProtocol.html">《和掌柜平台服务协议》</a>
         <a href="#">《网贷客户交易结算资金账户三方协议》</a><a href="#">《用户授权协议》</a></span>
     </div>
     <div class="selection submit" id="formSubmit">
@@ -302,7 +302,7 @@
     // }
     let url = testUrl+'?requestXml={"REQUESTS":[{"REQ_COMM_DATA":{"service":"FR100100","dataType":"json",' +
       '"khxm":"'+realName+'","khsfzhm":"'+idCode+'","dlzh":"'+phone+'","jymm":"'+cgPwd+'","khyhm":"'+bankValue+'",' +
-      '"khkh":"'+bankNo+'","khdqm":"'+provinceValue+'","IS_THIRD":"2","USER_NAME":"'+phone+'","USER_PWD":"'+password+'",'+
+      '"khkh":"'+bankNo+'","khdqm":"'+cityValue+'","IS_THIRD":"2","USER_NAME":"'+phone+'","USER_PWD":"'+password+'",'+
       '"REG_FROM":"0"'+
       '}}]}'
     $.get(url,function (data) {
