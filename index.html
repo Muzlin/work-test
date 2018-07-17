@@ -253,7 +253,7 @@
         <li>
           <div class="form-item">
             <lable>手机号码</lable>
-            <input type="text" placeholder="请输入您的手机号码">
+            <input type="text" placeholder="请输入您的手机号码" id="phone">
           </div>
         </li>
         <li>
@@ -265,7 +265,7 @@
           <div class="form-item codeInput">
             <div>
               <lable>短信验证码</lable>
-              <input type="text" placeholder="请输入短信验证码" id="phone"></div>
+              <input type="text" placeholder="请输入短信验证码"></div>
             <div>
               <button class="codeButton" onclick="sendCode($(this))">发送验证码</button>
             </div>
@@ -423,9 +423,9 @@
         html += '</ul>'
         $('.bankBox').html(html)
       }
+      $('.bankBox').addClass('active')
+      $('.container').removeClass('active')
     })
-    $('.bankBox').addClass('active')
-    $('.container').removeClass('active')
   })
   $('.boxList.bankBox').on('click', 'li', function (e) {
     var data = $(e.currentTarget).attr('data')
@@ -439,9 +439,9 @@
 <script>
   $('#checkProvince').on('click', function (e) {
     try {
-      $.get('http://118.89.36.194:18487/Inter/services/SoapService/doService?requestXml={"REQUESTS":[{"REQ_COMM_DATA":{"service":"A1705001","dataType":"json"}}]}', function (data) {
+      $.get('http://118.89.36.194:184827/Inter/services/SoapService/doService?requestXml={"REQUESTS":[{"REQ_COMM_DATA":{"service":"A1705001","dataType":"json"}}]}', function (data) {
         let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
-        if (code !== 0) {
+        if (code !== "0") {
           return false
         }
         let obj = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_COMM_DATA[0]
@@ -455,11 +455,11 @@
           html += '</ul>'
           $('.provinceBox').html(html)
         }
+        $('.provinceBox').addClass('active')
+        $('.container').removeClass('active')
       })
-      $('.provinceBox').addClass('active')
-      $('.container').removeClass('active')
     } catch (e) {
-      console.log(1)
+      console.log(e)
     }
   })
 
@@ -497,10 +497,9 @@
         html += '</ul>'
         $('.cityBox').html(html)
       }
+      $('.cityBox').addClass('active')
+      $('.container').removeClass('active')
     })
-
-    $('.cityBox').addClass('active')
-    $('.container').removeClass('active')
   })
   $('.boxList.cityBox').on('click', 'li', function (e) {
     var data = $(e.currentTarget).attr('data')
