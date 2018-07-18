@@ -352,7 +352,10 @@
             xw.error(msg, xw.loadRemove())
             return false
           } else {
-            let jumpUrl = appSignUrl + '?login_id=' + phone + '&mobile=' + phone + ''
+            //url + "?login_id=" + dlzh + "&mobile=" + dlzh + "&back_url=" + back_url + "&from_plat=1";
+            window.localStorage.setItem('登录状态标识','1')
+            window.localStorage.setItem('登录账号',phone)
+            let jumpUrl = appSignUrl + '?login_id=' + phone + '&mobile=' + phone + '&back_url=https://m.139lc.com/views/wd/home/home.html&from_plat=1'
             window.location.href = jumpUrl
           }
         })
