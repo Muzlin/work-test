@@ -453,7 +453,7 @@
     var _options = {
       type: 'object',
       success: function(result) {
-        form.submit();
+        //form.submit();
       },
       error: function(result) {
         var _nodeName = result.element.nodeName.toLowerCase();
