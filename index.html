@@ -39,8 +39,8 @@
             <div class="form-item codeInput">
               <div>
                 <lable>短信验证码</lable>
-                <input type="text" placeholder="请输入短信验证码" data-validation="required,onlyNumber,minSize[4],maxSize[4]"
-                       data-validation-message="请输入4位短信验证码" id="checkCode"></div>
+                <input type="text" placeholder="请输入短信验证码" data-validation="required,onlyNumber,minSize[6],maxSize[6]"
+                       data-validation-message="请输入6位短信验证码" id="checkCode"></div>
               <div>
                 <button class="codeButton" onclick="sendCode($(this))">发送验证码
                 </button>
@@ -124,7 +124,8 @@
         <input type="checkbox" id="agree-checkbox">
         <label class="agree-box active" for="agree-checkbox"></label>
         <span>点击"立即确认"即表示您已同意 <a href="https://m.139lc.com/views/dl/protocol/hzgProtocol.html">《和掌柜平台服务协议》</a>
-        <a href="#">《网贷客户交易结算资金账户三方协议》</a><a href="#">《用户授权协议》</a></span>
+        <a href="https://m.139lc.com/views/wd/fyyhc/netLoan.html">《网贷客户交易结算资金账户三方协议》</a><a
+              href="https://m.139lc.com/views/wd/fyyhc/userAuthorization.html">《用户授权协议》</a></span>
       </div>
       <div class="selection submit">
         <input type="submit" value="立即确认">
@@ -177,9 +178,11 @@
       if (obj && obj.length > 0) {
         let html = '<ul>';
         obj.map(item => {
-          html += '<li data="' + item.YHMC + '" data-id="' + item.YMBM + '">' +
-            item.YHMC +
-            '</li>'
+          if (item.YMBM.length == 4) {
+            html += '<li data="' + item.YHMC + '" data-id="' + item.YMBM + '">' +
+              item.YHMC +
+              '</li>'
+          }
         });
         html += '</ul>';
         $('.bankBox').html(html)
@@ -335,7 +338,7 @@
         let realName = $('#realName').val()
         let idCode = $('#idCode').val()
         let bankValue = $('#bankValue').attr('data-id')
-        let bankNo = $('#password').val()
+        let bankNo = $('#bankNo').val()
         let provinceValue = $('#provinceValue').attr('data-id')
         let cityValue = $('#cityValue').attr('data-id')
         let cgPwd = $('#cgPwd').val()
@@ -343,20 +346,26 @@
 
         let postData = getPostData('{"service":"FR100100","dataType":"json",' +
           '"khxm":"' + realName + '","khsfzhm":"' + idCode + '","dlzh":"' + phone + '","jymm":"' + cgPwd + '","khyhm":"' + bankValue + '",' +
-          '"khkh":"' + bankNo + '","khdqm":"' + cityValue + '","IS_THIRD":"2","yzm:"'+checkCode+'","USER_NAME":"' + phone + '","USER_PWD":"' + password + '",' +
+          '"khkh":"' + bankNo + '","khdqm":"' + cityValue + '","IS_THIRD":"2","yzm":"' + checkCode + '","USER_NAME":"' + phone + '","USER_PWD":"' + password + '",' +
           '"REG_FROM":"0"}')
         doRequest(relaceUrl, postData, function (data) {
+          console.log(data);
           let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
           let msg = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_TEXT
+          let resData = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_COMM_DATA
           if (code !== "0") {
             xw.error(msg, xw.loadRemove())
             return false
           } else {
             //url + "?login_id=" + dlzh + "&mobile=" + dlzh + "&back_url=" + back_url + "&from_plat=1";
-            window.localStorage.setItem('登录状态标识','1')
-            window.localStorage.setItem('登录账号',phone)
-            let jumpUrl = appSignUrl + '?login_id=' + phone + '&mobile=' + phone + '&back_url=https://m.139lc.com/views/wd/home/home.html&from_plat=1'
+            window.localStorage.setItem('登录状态标识', '1')
+            window.localStorage.setItem('登录账号', phone)
+            window.localStorage.setItem('我的交易账号', resData[0][0].JYZH)
+
+            let jumpUrl = appSignUrl + '?login_id=' + phone + '&mobile=' + phone + '&back_url=https://m.139lc.com/views/wd/home/home.html&from_plat=WEB'
             window.location.href = jumpUrl
+            console.log(jumpUrl);
+            xw.success('操作成功', xw.loadRemove())
           }
         })
       }

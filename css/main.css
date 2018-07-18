@@ -91,7 +91,7 @@ main .container.active {
   width: 6px;
   height: 10px;
   margin-left: 5px;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .form .form-item input {
@@ -99,28 +99,30 @@ main .container.active {
   outline: none;
   background: #FFF8EA;
   color: #6A706F;
-  width: 150px;
+  width: 160px;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 1em;
   text-align: right;
 }
 
 .form .form-item.codeInput input {
   text-align: left;
   padding-left: 8px;
+  font-size: 14px;
+  line-height: 1em;
 }
 
 .form .form-item input::-webkit-input-placeholder {
   color: #C1BCB4;
   text-align: right;
-  font-size: 14px;    //解决iphone下字体大小为12的问题（和input大小不一致）
-  line-height: 1em;   //解决不垂直居中的问题;
+  /*font-size: 14px;*/
+  /*line-height: 1em;*/
 }
 
 .form .form-item.codeInput input::-webkit-input-placeholder {
   text-align: left;
-  font-size: 14px;    //解决iphone下字体大小为12的问题（和input大小不一致）
-  line-height: 1em;   //解决不垂直居中的问题
+  /*font-size: 14px;*/
+  /*line-height: 1em;*/
   color: #C1BCB4;
 }
 
