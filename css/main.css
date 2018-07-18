@@ -73,6 +73,7 @@ main .container.active {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
 }
 
 .form .form-item > label {
@@ -112,12 +113,15 @@ main .container.active {
 .form .form-item input::-webkit-input-placeholder {
   color: #C1BCB4;
   text-align: right;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 14px;    //解决iphone下字体大小为12的问题（和input大小不一致）
+  line-height: 1em;   //解决不垂直居中的问题;
 }
 
 .form .form-item.codeInput input::-webkit-input-placeholder {
   text-align: left;
+  font-size: 14px;    //解决iphone下字体大小为12的问题（和input大小不一致）
+  line-height: 1em;   //解决不垂直居中的问题
+  color: #C1BCB4;
 }
 
 .form .form-item .codeButton {

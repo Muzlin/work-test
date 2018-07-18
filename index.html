@@ -343,7 +343,7 @@
 
         let postData = getPostData('{"service":"FR100100","dataType":"json",' +
           '"khxm":"' + realName + '","khsfzhm":"' + idCode + '","dlzh":"' + phone + '","jymm":"' + cgPwd + '","khyhm":"' + bankValue + '",' +
-          '"khkh":"' + bankNo + '","khdqm":"' + cityValue + '","IS_THIRD":"2","USER_NAME":"' + phone + '","USER_PWD":"' + password + '",' +
+          '"khkh":"' + bankNo + '","khdqm":"' + cityValue + '","IS_THIRD":"2","yzm:"'+checkCode+'","USER_NAME":"' + phone + '","USER_PWD":"' + password + '",' +
           '"REG_FROM":"0"}')
         doRequest(relaceUrl, postData, function (data) {
           let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
