@@ -289,7 +289,7 @@
         let time = 60
         e.attr('disabled', true).addClass('disabled')
         let timeId = setInterval(function () {
-          e.text(time + '后重新发送')
+          e.text(time + 's后重新发送')
           time--
           if (time === 0) {
             window.clearInterval(timeId)
