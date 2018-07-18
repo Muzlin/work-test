@@ -206,6 +206,7 @@ main .container.active {
   padding: 10px 0px;
   outline: none;
   -webkit-appearance: none;
+  -webkit-border-radius: 0;
 }
 
 .selection.description {
