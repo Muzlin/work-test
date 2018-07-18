@@ -199,14 +199,13 @@ main .container.active {
   color: #FBDCBF;
 }
 .selection.submit > input[type=submit]{
-  border: 1px solid;
+  border: none;
   background: inherit;
   color: #fff;
   width: 100%;
   padding: 10px 0px;
   outline: none;
   -webkit-appearance: none;
-  -webkit-border-radius: 0;
 }
 
 .selection.description {
