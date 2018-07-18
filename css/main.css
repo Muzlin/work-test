@@ -90,7 +90,8 @@ main .container.active {
   width: 6px;
   height: 10px;
   margin-left: 5px;
-  margin-bottom: 2px;
+  vertical-align: top;
+  margin-bottom: 1px;
 }
 
 .form .form-item input {
