@@ -7,137 +7,158 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>注册</title>
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./js/xwPop/css/xwPop.css">
+  <link rel="stylesheet" href="./js/cxValidation/css/cxvalidation.css">
   <script src="./js/fastclick.js"></script>
   <script src="./js/jquery.min.js"></script>
+  <script src="./js/xwPop/js/xwPop.js"></script>
+  <script src="./js/zepto.min.js"></script>
+  <script src="./js/cxValidation/js/cxvalidation.min.js"></script>
 </head>
 <body>
-<main>
-  <div class="container active">
-    <div class="header"><img src="./img/banner.png" alt=""></div>
-    <div class="form">
-      <ul>
-        <li>
-          <div class="form-item">
-            <lable>手机号码</lable>
-            <input type="text" placeholder="请输入您的手机号码" id="phone">
-          </div>
-        </li>
-        <li>
-          <div class="form-item">
-            <lable>登录密码</lable>
-            <input type="password" placeholder="请输入您的登录密码" id="password"></div>
-        </li>
-        <li>
-          <div class="form-item codeInput">
+<form action="#" id="regForm" method="post">
+  <main>
+    <div class="container active">
+      <div class="header"><img src="./img/banner.png" alt=""></div>
+      <div class="form">
+        <ul>
+          <li>
+            <div class="form-item">
+              <lable>手机号码</lable>
+              <input type="text" placeholder="请输入您的手机号码" data-validation="required,onlyNumber,minSize[11],maxSize[11]"
+                     data-validation-message="手机号码不正确" id="phone">
+            </div>
+          </li>
+          <li>
+            <div class="form-item">
+              <lable>登录密码</lable>
+              <input type="password" placeholder="请输入您的登录密码" data-validation="required"
+                     data-validation-message="登录密码不能为空" id="password"></div>
+          </li>
+          <li>
+            <div class="form-item codeInput">
+              <div>
+                <lable>短信验证码</lable>
+                <input type="text" placeholder="请输入短信验证码" data-validation="required,onlyNumber,minSize[4],maxSize[4]"
+                       data-validation-message="请输入4位短信验证码" id="checkCode"></div>
+              <div>
+                <button class="codeButton" onclick="sendCode($(this))">发送验证码
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="hint">
             <div>
-              <lable>短信验证码</lable>
-              <input type="text" placeholder="请输入短信验证码" id="checkCode"></div>
+              <span>充值、提现等资金操作前均须认证开户：</span>
+            </div>
+          </li>
+          <li>
+            <div class="form-item">
+              <lable>持卡人</lable>
+              <input type="text" placeholder="填写您的真实姓名" data-validation="required" data-validation-message="真实姓名不能为空"
+                     id="realName"></div>
+          </li>
+          <li>
+            <div class="form-item">
+              <lable>身份证号码</lable>
+              <input type="text" placeholder="大陆有效居民身份证" data-validation="required,chinaIdLoose"
+                     data-validation-message="身份证号码不正确" id="idCode"></div>
+          </li>
+          <li>
+            <div class="form-item">
+              <lable>选择银行</lable>
+              <div class="checkInput" id="checkBank">
+                <input type="text" readonly placeholder="请选择" data-validation="required" data-validation-message="请选择银行"
+                       id="bankValue">
+                <img src="./img/icon-arrow-right.png" alt="">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="form-item">
+              <lable>银行卡号</lable>
+              <input type="text" placeholder="填写储蓄卡号" data-validation="required,onlyNumber,maxSize[30]"
+                     data-validation-message="银行卡号不正确" id="bankNo"></div>
+          </li>
+          <li>
+            <div class="form-item">
+              <lable>开户省份</lable>
+              <div class="checkInput" id="checkProvince">
+                <input type="text" readonly placeholder="请选择" data-validation="required"
+                       data-validation-message="请选择开户省份" id="provinceValue">
+                <img src="./img/icon-arrow-right.png" alt="">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="form-item">
+              <lable>开户城市</lable>
+              <div class="checkInput" id="checkCity">
+                <input type="text" readonly placeholder="请选择" data-validation="required"
+                       data-validation-message="请选择开户城市" id="cityValue">
+                <img src="./img/icon-arrow-right.png" alt="">
+              </div>
+            </div>
+          </li>
+          <li class="hint">
             <div>
-              <button class="codeButton" onclick="sendCode($(this))">发送验证码</button>
+              <h4></h4>
             </div>
-          </div>
-        </li>
-        <li class="hint">
-          <div>
-            <span>充值、提现等资金操作前均须认证开户：</span>
-          </div>
-        </li>
-        <li>
-          <div class="form-item">
-            <lable>持卡人</lable>
-            <input type="text" placeholder="填写您的真实姓名" id="realName"></div>
-        </li>
-        <li>
-          <div class="form-item">
-            <lable>身份证号码</lable>
-            <input type="text" placeholder="大陆有效居民身份证" id="idCode"></div>
-        </li>
-        <li>
-          <div class="form-item">
-            <lable>选择银行</lable>
-            <div class="checkInput" id="checkBank">
-              <input type="text" readonly placeholder="请选择" id="bankValue">
-              <img src="./img/icon-arrow-right.png" alt="">
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="form-item">
-            <lable>银行卡号</lable>
-            <input type="text" placeholder="填写储蓄卡号" id="bankNo"></div>
-        </li>
-        <li>
-          <div class="form-item">
-            <lable>开户省份</lable>
-            <div class="checkInput" id="checkProvince">
-              <input type="text" readonly placeholder="请选择" id="provinceValue">
-              <img src="./img/icon-arrow-right.png" alt="">
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="form-item">
-            <lable>开户城市</lable>
-            <div class="checkInput" id="checkCity">
-              <input type="text" readonly placeholder="请选择" id="cityValue">
-              <img src="./img/icon-arrow-right.png" alt="">
-            </div>
-          </div>
-        </li>
-        <li class="hint">
-          <div>
-            <h4></h4>
-          </div>
-        </li>
-        <li>
-          <div class="form-item">
-            <lable>存管银行提现支付密码</lable>
-            <input type="password" placeholder="请设置6位数字交易密码" id="cgPwd"></div>
-        </li>
-        <li>
-          <div class="form-item">
-            <lable>确认密码</lable>
-            <input type="password" placeholder="请确认交易密码" id="ccgPwd"></div>
-        </li>
-      </ul>
-    </div>
-    <div class="selection rule" id="checkBox">
-      <input type="checkbox" id="agree-checkbox">
-      <label class="agree-box active" for="agree-checkbox"></label>
-      <span>点击"立即确认"即表示您已同意 <a href="https://m.139lc.com/views/dl/protocol/hzgProtocol.html">《和掌柜平台服务协议》</a>
+          </li>
+          <li>
+            <div class="form-item">
+              <lable>存管银行提现支付密码</lable>
+              <input type="password" placeholder="请设置6位数字交易密码"
+                     data-validation="required,onlyNumber,maxSize[6],minSize[6]" data-validation-message="请设置6位数字交易密码"
+                     id="cgPwd"></div>
+          </li>
+          <li>
+            <div class="form-item">
+              <lable>确认密码</lable>
+              <input type="password" placeholder="请确认交易密码" data-validation="equals[cgPwd]"
+                     data-validation-message="两次存管密码不正确" id="ccgPwd"></div>
+          </li>
+        </ul>
+      </div>
+      <div class="selection rule" id="checkBox">
+        <input type="checkbox" id="agree-checkbox">
+        <label class="agree-box active" for="agree-checkbox"></label>
+        <span>点击"立即确认"即表示您已同意 <a href="https://m.139lc.com/views/dl/protocol/hzgProtocol.html">《和掌柜平台服务协议》</a>
         <a href="#">《网贷客户交易结算资金账户三方协议》</a><a href="#">《用户授权协议》</a></span>
-    </div>
-    <div class="selection submit" id="formSubmit">
-      <butto>立即确认</butto>
-    </div>
-    <div class="selection description">
-      <div>
-        <img src="./img/icon-safe.png" alt="">
-        <span>和掌柜三年稳健运行</span>
+      </div>
+      <div class="selection submit">
+        <input type="submit" value="立即确认">
+      </div>
+      <div class="selection description">
+        <div>
+          <img src="./img/icon-safe.png" alt="">
+          <span>和掌柜三年稳健运行</span>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="boxList bankBox">
-    <ul>
-      <li>暂未读取到数据</li>
-    </ul>
-  </div>
-  <div class="boxList provinceBox">
-    <ul>
-      <li>暂未读取到数据</li>
-    </ul>
-  </div>
-  <div class="boxList cityBox">
-    <ul>
-      <li>请选选择身份</li>
-    </ul>
-  </div>
-</main>
+    <div class="boxList bankBox">
+      <ul>
+        <li>暂未读取到数据</li>
+      </ul>
+    </div>
+    <div class="boxList provinceBox">
+      <ul>
+        <li>暂未读取到数据</li>
+      </ul>
+    </div>
+    <div class="boxList cityBox">
+      <ul>
+        <li>请选选择身份</li>
+      </ul>
+    </div>
+  </main>
+</form>
 <script>
   $(function () {
     FastClick.attach(document.body)
   })
   const relaceUrl = 'https://a.139lc.com/v1/services/SoapService/'
+  const codeUrl = 'https://m.139lc.com:21900/api/trade/yzmhq'
   const testUrl = 'http://118.89.36.194:18487/Inter/services/SoapService/doService'
   const appSignUrl = 'https://a.139lc.com/v1/w/appSignCard.htm' //签约地址
   const appAuthUrl = 'https://a.139lc.com/v1/w/authConfig.htm'    //授权地址
@@ -149,7 +170,7 @@
       let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
       let msg = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_TEXT
       if (code !== "0") {
-        alert(msg)
+        xw.error(msg, xw.loadRemove())
         return false
       }
       let obj = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_COMM_DATA[0]
@@ -165,6 +186,7 @@
       }
       $('.bankBox').addClass('active');
       $('.container').removeClass('active')
+      xw.loadRemove()
     })
   });
 
@@ -180,12 +202,12 @@
 </script>
 <script>
   $('#checkProvince').on('click', function (e) {
-    let postData = '{"service":"A1705001","dataType":"json"}'
+    let postData = getPostData('{"service":"A1705001","dataType":"json"}')
     doRequest(relaceUrl, postData, function (data) {
       let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
       let msg = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_TEXT
       if (code !== "0") {
-        alert(msg)
+        xw.error(msg, xw.loadRemove())
         return false
       }
       let obj = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_COMM_DATA[0]
@@ -201,6 +223,7 @@
       }
       $('.provinceBox').addClass('active')
       $('.container').removeClass('active')
+      xw.loadRemove()
     })
   })
 
@@ -219,15 +242,15 @@
   $('#checkCity').on('click', function (e) {
     let pid = $('#provinceValue').attr('data-id')
     if (!pid) {
-      alert('请先选择省份')
+      xw.warn('请先选择省份')
       return false;
     }
-    let postData = '{"service":"A1705002","dataType":"json","PAR_REGION_ID":"' + pid + '"}'
+    let postData = getPostData('{"service":"A1705002","dataType":"json","PAR_REGION_ID":"' + pid + '"}')
     doRequest(relaceUrl, postData, function (data) {
       let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
       let msg = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_TEXT
       if (code !== "0") {
-        alert(msg)
+        xw.error(msg, xw.loadRemove())
         return false
       }
       let obj = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_COMM_DATA[0]
@@ -243,6 +266,7 @@
       }
       $('.cityBox').addClass('active')
       $('.container').removeClass('active')
+      xw.loadRemove()
     })
   })
 
@@ -258,65 +282,77 @@
 </script>
 <script>
   function sendCode(e) {
-    let phone = $('#phone').val()
-    if (!phone || !(/^1[3|4|5|7|8|9][0-9]\d{4,8}$/.test(phone))) {
-      alert('手机号码不正确')
-      return false
+    if ($.cxValidation($('#phone'))) {
+      let phone = $('#phone').val()
+      let postData = JSON.stringify({"sjhm": phone})
+      $.post(codeUrl, postData, function () {
+        let time = 60
+        e.attr('disabled', true).addClass('disabled')
+        let timeId = setInterval(function () {
+          e.text(time + '后重新发送')
+          time--
+          if (time === 0) {
+            window.clearInterval(timeId)
+            e.text('发送验证码')
+          }
+        }, 1000)
+      })
+      // doRequest(codeUrl, postData, function (data) {
+      //   console.log('send code api=====>');
+      //   console.log(data);
+      //   let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
+      //   let msg = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_TEXT
+      //   if (code !== "0") {
+      //     xw.error(msg, xw.loadRemove())
+      //     return false
+      //   }
+      //   let time = 60
+      //   e.attr('disabled', true).addClass('disabled')
+      //   let timeId = setInterval(function () {
+      //     e.text(time + '后重新发送')
+      //     time--
+      //     if (time === 0) {
+      //       window.clearInterval(timeId)
+      //       e.text('发送验证码')
+      //     }
+      //   }, 1000)
+      // })
     }
-    let postData = '{"service":"S000101","dataType":"json","TYPE":"41951","MOBILE_NO":"' + phone + '"}'
-    doRequest(relaceUrl, postData, function (data) {
-      let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
-      let msg = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_TEXT
-      if (code !== "0") {
-        alert(msg)
-        return false
-      }
-      let time = 60
-      e.attr('disabled', true).addClass('disabled')
-      let timeId = setInterval(function () {
-        e.text(time)
-        time--
-        if (time === 0) {
-          window.clearInterval(timeId)
-          e.text('发送验证码')
-        }
-      }, 1000)
-    })
   }
 </script>
 <script>
-  $('#formSubmit').on('click', function (e) {
-    let phone = $('#phone').val()
-    let password = $('#password').val()
-    let checkCode = $('#checkCode').val()
-    let realName = $('#realName').val()
-    let idCode = $('#idCode').val()
-    let bankValue = $('#bankValue').attr('data-id')
-    let bankNo = $('#password').val()
-    let provinceValue = $('#provinceValue').attr('data-id')
-    let cityValue = $('#cityValue').attr('data-id')
-    let cgPwd = $('#cgPwd').val()
-    let ccgPwd = $('#ccgPwd').val()
+  $.cxValidation.attach($('#regForm'))
+  $("#regForm").submit(function (e) {
+    e.preventDefault()
+    if ($.cxValidation($('#regForm'))) {
+      let phone = $('#phone').val()
+      let password = $('#password').val()
+      let checkCode = $('#checkCode').val()
+      let realName = $('#realName').val()
+      let idCode = $('#idCode').val()
+      let bankValue = $('#bankValue').attr('data-id')
+      let bankNo = $('#password').val()
+      let provinceValue = $('#provinceValue').attr('data-id')
+      let cityValue = $('#cityValue').attr('data-id')
+      let cgPwd = $('#cgPwd').val()
+      let ccgPwd = $('#ccgPwd').val()
 
-    // if(phone || password || checkCode || realName || idCode || bankValue || bankNo || provinceValue || cityValue || cgPwd || ccgPwd){
-    //   alert(1)
-    // }else{
-    //   alert('信息填写不正确')
-    // }
-    let postData = '{"service":"FR100100","dataType":"json",' +
-      '"khxm":"' + realName + '","khsfzhm":"' + idCode + '","dlzh":"' + phone + '","jymm":"' + cgPwd + '","khyhm":"' + bankValue + '",' +
-      '"khkh":"' + bankNo + '","khdqm":"' + cityValue + '","IS_THIRD":"2","USER_NAME":"' + phone + '","USER_PWD":"' + password + '",' +
-      '"REG_FROM":"0"}'
-    doRequest(relaceUrl,postData,function (data) {
-      let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
-      let msg = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_TEXT
-      if (code !== "0") {
-        alert(msg)
-        return false
-      }
-      let jumpUrl = appSignUrl + '?login_id=' + phone + '&mobile=' + phone + ''
-      window.location.href = jumpUrl
-    })
+      let postData = getPostData('{"service":"FR100100","dataType":"json",' +
+        '"khxm":"' + realName + '","khsfzhm":"' + idCode + '","dlzh":"' + phone + '","jymm":"' + cgPwd + '","khyhm":"' + bankValue + '",' +
+        '"khkh":"' + bankNo + '","khdqm":"' + cityValue + '","IS_THIRD":"2","USER_NAME":"' + phone + '","USER_PWD":"' + password + '",' +
+        '"REG_FROM":"0"}')
+      doRequest(relaceUrl, postData, function (data) {
+        let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
+        let msg = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_TEXT
+        if (code !== "0") {
+          xw.error(msg, xw.loadRemove())
+          return false
+        } else {
+          let jumpUrl = appSignUrl + '?login_id=' + phone + '&mobile=' + phone + ''
+          window.location.href = jumpUrl
+        }
+      })
+    }
   })
 </script>
 <script>
@@ -354,12 +390,11 @@
       cache: false,
       // crossDomain:true,
       beforeSend: function () {
-        console.log('send');
+        xw.load('数据请求中')
       },
       success: successFn,
       error: function (e) {
-        console.log('err');
-        alert('请求失败')
+        xw.error('请求失败', xw.loadRemove())
       },
       complete: function () {
         console.log('full');
