@@ -293,6 +293,7 @@
           time--
           if (time === 0) {
             window.clearInterval(timeId)
+            e.attr('disabled', false).removeClass('disabled')
             e.text('发送验证码')
           }
         }, 1000)
