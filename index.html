@@ -326,7 +326,6 @@
 </script>
 <script>
   $(function () {
-
     $.cxValidation.attach($('#regForm'))
     $("form").submit(function (e) {
       e.preventDefault()
@@ -349,7 +348,6 @@
           '"khkh":"' + bankNo + '","khdqm":"' + cityValue + '","IS_THIRD":"2","yzm":"' + checkCode + '","USER_NAME":"' + phone + '","USER_PWD":"' + password + '",' +
           '"REG_FROM":"0"}')
         doRequest(relaceUrl, postData, function (data) {
-          console.log(data);
           let code = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_CODE
           let msg = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_MSG_HDR.MSG_TEXT
           let resData = JSON.parse($(data).find('return').html().toString())['ANSWERS'][0].ANS_COMM_DATA
@@ -364,7 +362,6 @@
 
             let jumpUrl = appSignUrl + '?login_id=' + phone + '&mobile=' + phone + '&back_url=https://m.139lc.com/views/wd/home/home.html&from_plat=WEB'
             window.location.href = jumpUrl
-            console.log(jumpUrl);
             xw.success('操作成功', xw.loadRemove())
           }
         })
