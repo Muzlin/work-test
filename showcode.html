@@ -100,7 +100,7 @@
     <div class="code">
       <div class="wrapper">
         <span class="top">充值码</span>
-        <b class="middle">0090099</b>
+        <b class="middle" id="cz_code">0090099</b>
         <span class="bottom">3天内有效</span>
       </div>
     </div>
@@ -108,7 +108,7 @@
       <ul>
         <li class="amount">
           <span class="text">充值金额：</span>
-          <b class="num">1000.00</b>元
+          <b class="num" id="cz_amount">1000.00</b>元
         </li>
         <li>收款户名：
           <span>上海富友支付服务有限公司客户备付金</span>
@@ -145,10 +145,14 @@
 <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 <script>
   $('.button.bw').on('click',function () {
-    window.location.href = '/banklist.html'
+    window.location.href = '/work-test/banklist.html'
   })
   $('.button.sm').on('click',function () {
-    window.location.href = '/explain.html'
+    window.location.href = '/work-test/explain.html'
   })
+  var code = localStorage.getItem('cz_code') || '暂无'
+  var amount = localStorage.getItem('cz_amount') || '暂无'
+  $('#cz_code').text(code)
+  $('#cz_amount').text(amount)
 </script>
 </html>

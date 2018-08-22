@@ -17,10 +17,10 @@
     </div>
     <div class="form">
       <div class="phone">
-        <input type="text" placeholder="请输入注册手机号">
+        <input type="text" name="phone" placeholder="请输入注册手机号">
       </div>
       <div class="amount">
-        <input type="text" placeholder="请输入充值金额">
+        <input type="text" name="amount" placeholder="请输入充值金额">
       </div>
     </div>
     <div class="footer">
@@ -43,7 +43,15 @@
 </body>
 <script>
   $('.button.sc').on('click',function(){
-    alert(1)
+    var phone = $('input[name=phone]').val()
+    var amount = $('input[name=amount]').val()
+    if(phone && amount){
+      localStorage.setItem('cz_code','87832192')
+      localStorage.setItem('cz_amount',amount)
+      window.location.href = '/work-test/showcode.html'
+    }else{
+      alert('请输入正确信息')
+    }
   })
 </script>
 </html>
