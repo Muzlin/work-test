@@ -28,6 +28,8 @@ body {
   line-height: 14px;
   color: #848a93;
   font-size: 14px;
+  border: none;
+  outline: none;
 }
 
 .form input::placeholder {
