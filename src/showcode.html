@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>生成充值码</title>
+  <style>
+    .code {
+      margin-bottom: 10px;
+      padding: 30px 0;
+      background: url('./img/bg01.png') no-repeat center;
+      background-size: cover;
+    }
+
+    .code .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .code .wrapper .top {
+      font-size: 14px;
+      line-height: 14px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .code .wrapper .middle {
+      font-size: 30px;
+      line-height: 30px;
+      color: #e0634e;
+      margin-bottom: 11px;
+    }
+
+    .code .wrapper .bottom {
+      font-size: 13px;
+      line-height: 13px;
+      color: #848a93;
+    }
+
+    .info {
+      background: #fff;
+      margin-bottom: 30px;
+    }
+
+    .info ul {
+      padding-bottom: 12px;
+      padding-top: 20px;
+    }
+
+    .info .amount {
+      border-left: 2px solid #323232;
+      margin-bottom: 18px;
+      line-height: 15px;
+    }
+
+    .info .amount .text {
+      font-size: 15px;
+      line-height: 15px;
+      color: #333;
+      margin-left: -6px;
+    }
+
+    .info .amount .num {
+      color: #e0634e;
+      margin-left: -3px;
+    }
+
+    .info ul li {
+      padding-left: 15px;
+      font-size: 14px;
+      line-height: 28px;
+      color: #85888D;
+    }
+
+    .info ul li span {
+      color: #333333;
+    }
+
+    .explain .wrapper {
+      width: 100%;
+      margin: 0 auto;
+      line-height: 16px;
+    }
+
+    .explain .wrapper span {
+      font-size: 13px;
+      color: #848a93;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="code">
+      <div class="wrapper">
+        <span class="top">充值码</span>
+        <b class="middle">0090099</b>
+        <span class="bottom">3天内有效</span>
+      </div>
+    </div>
+    <div class="info">
+      <ul>
+        <li class="amount">
+          <span class="text">充值金额：</span>
+          <b class="num">1000.00</b>元
+        </li>
+        <li>收款户名：
+          <span>上海富友支付服务有限公司客户备付金</span>
+        </li>
+        <li>银行账户：
+          <span>1001190729004842206</span>
+        </li>
+        <li>银行名称：
+          <span>中国工商银行</span>
+        </li>
+        <li>支行信息：
+          <span>中国工商银行上海分行第二营业部</span>
+        </li>
+        <li>所属商户：
+          <span>成都融证通互联网信息服务有限公司</span>
+        </li>
+      </ul>
+    </div>
+    <div class="footer">
+      <div class="button sm">
+        <button>查看使用说明</button>
+      </div>
+      <div class="button bw">
+        <button>查看支持此功能的银行</button>
+      </div>
+      <div class="explain">
+        <div class="wrapper">
+          <span>您可通过本人名下符合要求的银行卡的网银、手机银行、或 银行柜台进行充值操作</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script>
+  $('.button.bw').on('click',function () {
+    window.location.href = '/banklist.html'
+  })
+  $('.button.sm').on('click',function () {
+    window.location.href = '/explain.html'
+  })
+</script>
+</html>

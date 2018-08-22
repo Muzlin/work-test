@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>充值码重置</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="tip">
+      <span>☆温馨提示：请核验您的充值金额是否超过您的银行支付限额</span>
+    </div>
+    <div class="form">
+      <div class="phone">
+        <input type="text" placeholder="请输入注册手机号">
+      </div>
+      <div class="amount">
+        <input type="text" placeholder="请输入充值金额">
+      </div>
+    </div>
+    <div class="footer">
+      <div class="button sc">
+        <button>生成充值码</button>
+      </div>
+      <div class="other">
+        <div class="wrapper">
+          <div class="bank">
+            <a href="/banklist.html">支持功能的银行</a>
+          </div>
+          <div class="explain">
+            <a href="/explain.html">使用说明</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+</body>
+<script>
+  $('.button.sc').on('click',function(){
+    alert(1)
+  })
+</script>
+</html>

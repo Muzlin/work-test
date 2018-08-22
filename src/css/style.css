@@ -1,0 +1,80 @@
+body {
+  background: #f5f3f6;
+}
+
+.tip {
+  text-align: center;
+  background: #ffc16c;
+  line-height: 13px;
+  padding: 14px 0;
+}
+
+.tip span {
+  font-size: 13px;
+  color: #fff;
+}
+
+.form {
+  margin: 10px 0 30px 0;
+  background: #fff;
+}
+
+.form div {
+  line-height: 14px;
+  padding: 14px 20px;
+}
+
+.form input {
+  line-height: 14px;
+  color: #848a93;
+  font-size: 14px;
+}
+
+.form input::placeholder {
+  color: #848a93;
+}
+
+.form .phone {
+  border-bottom: 1px solid #f5f3f6;
+}
+
+.footer{
+  /* width: 100%; */
+  padding: 0 20px;
+}
+
+.button {
+  line-height: 16px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.button button {
+  font-size: 16px;
+  line-height: 16px;
+  color: #fff;
+  width: 100%;
+  padding: 14px 0;
+  background: #DC6557;
+  border: none;
+  border-radius: 2px;
+}
+.button.bw button{
+  color: #474b51;
+  background: #f5f3f6;
+  border: 1px solid #BABBC0;
+}
+
+.other .wrapper {
+  width: 100%;
+  margin: 0 auto;
+  line-height: 13px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.other a {
+  font-size: 13px;
+  line-height: 13px;
+  color: #326ebf;
+}
